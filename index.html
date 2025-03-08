@@ -3,45 +3,160 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제주 감귤 직거래</title>
+    <title>제주 향이네 농장</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <!-- Fonts 링크 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("/api/placeholder/1200/600");
-        background-size: cover;
-        background-position: center;
+      /* 구기체 폰트 적용 */
+      .gugi-font {
+        font-family: "Gugi", cursive;
+        color: #ff6f00;
+        letter-spacing: 0.02em;
+      }
+      .hero-carousel img {
+        height: 550px;
+        object-fit: cover;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
-        padding: 100px 0;
       }
       .feature-icon {
         font-size: 3rem;
         color: #fd7e14;
       }
+      .farm-notice {
+        background-color: #fff3cd;
+        border-left: 4px solid #fd7e14;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      .farm-alert {
+        color: #842029;
+        background-color: #f8d7da;
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      .card-img-top {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
+      }
+      .premium-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #198754;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+      .discount-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #dc3545;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.2;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+      .btn-order {
+        background-color: #fd7e14;
+        border-color: #fd7e14;
+        color: white;
+      }
+      .btn-order:hover {
+        background-color: #e86e06;
+        border-color: #e86e06;
+        color: white;
+      }
     </style>
   </head>
   <body>
-    <!-- 네비게이션 바 -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">제주 감귤</a>
+        <a class="navbar-brand gugi-font" href="#"> 🍊 제주 향이네 농장 </a>
       </div>
     </nav>
+    <!-- 히어로 섹션 (슬라이드 배경) -->
+    <section class="position-relative">
+      <!-- 배경 캐러셀 -->
+      <div
+        id="farmCarousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="./IMG_2042.JPG"
+              class="d-block w-100"
+              alt="농장 이미지 1"
+              style="height: 550px; object-fit: cover"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./IMG_2043.JPG"
+              class="d-block w-100"
+              alt="농장 이미지 2"
+              style="height: 550px; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
 
-    <!-- 히어로 섹션 -->
-    <section class="hero text-center">
-      <div class="container">
-        <h1 class="display-4 fw-bold">제주 직송 감귤</h1>
-        <p class="lead">신선한 제주 감귤을 집에서 만나보세요</p>
-        <a
-          href="https://forms.gle/UENt2DDNuUTkRF12A"
-          class="btn btn-warning btn-lg"
-        >
-          지금 주문하기
-        </a>
+      <!-- 텍스트 오버레이 - z-index 추가 및 배경 어둡게 -->
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+        style="background: rgba(0, 0, 0, 0.7); z-index: 5"
+      >
+        <div class="container text-center text-white">
+          <h1
+            class="display-4 fw-bold"
+            style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8)"
+          >
+            제주 향이네 농장
+          </h1>
+          <p class="lead" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8)">
+            신선한 제주 감귤을 집에서 만나보세요
+          </p>
+          <a
+            href="https://forms.gle/VLHckk8MLX5qNtXNA"
+            class="btn btn-warning btn-lg fw-bold"
+          >
+            지금 주문하기
+          </a>
+        </div>
       </div>
     </section>
 
@@ -68,42 +183,133 @@
       </div>
     </section>
 
+    <!-- 농장 정보 및 공지사항 -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center mb-4">향이네 농장 소식</h2>
+        <div class="farm-notice">
+          <h4>🍊 천혜향 판매 안내</h4>
+          <p>향이네 농장에서 달콤한 천혜향을 판매합니다!</p>
+          <ul>
+            <li><strong>발송 시작일:</strong> 3월 10일부터</li>
+            <li><strong>발송 요일:</strong> 일요일, 화요일, 목요일</li>
+          </ul>
+          <p class="farm-alert">
+            <strong>주의!</strong> 현재 과일에 신맛이 조금 있습니다. 신맛을
+            싫어하시는 분들은 3월 말에 주문해주세요.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- 상품 정보 섹션 -->
     <section class="bg-light py-5">
       <div class="container">
         <h2 class="text-center mb-4">상품 정보</h2>
         <div class="row">
           <div class="col-md-6">
-            <div class="card mb-4">
-              <img
-                src="/api/placeholder/600/400"
-                class="card-img-top"
-                alt="감귤 3kg"
-              />
+            <div class="card mb-4 position-relative">
+              <span class="premium-badge">최상품</span>
+              <img src="./img.png" class="card-img-top" alt="상품 10kg" />
               <div class="card-body">
-                <h5 class="card-title">감귤 3kg</h5>
-                <p class="card-text">가정용으로 적당한 3kg 상품입니다.</p>
-                <a href="product-3kg.html" class="btn btn-warning">
-                  상세보기
-                </a>
+                <h5 class="card-title">상품 10kg</h5>
+                <p class="card-text">엄선된 고품질 천혜향 10kg</p>
+                <p class="card-text fw-bold text-danger">87,000원</p>
+                <div class="d-flex gap-2">
+                  <a
+                    href="product-10kg.html"
+                    class="btn btn-outline-secondary flex-grow-1"
+                  >
+                    상세보기
+                  </a>
+                  <a
+                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                    class="btn btn-order flex-grow-1"
+                  >
+                    주문하기
+                  </a>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card mb-4">
-              <img
-                src="/api/placeholder/600/400"
-                class="card-img-top"
-                alt="감귤 5kg"
-              />
+            <div class="card mb-4 position-relative">
+              <span class="premium-badge">최상품</span>
+              <img src="./img.png" class="card-img-top" alt="상품 5kg" />
               <div class="card-body">
-                <h5 class="card-title">감귤 5kg</h5>
+                <h5 class="card-title">상품 5kg</h5>
+                <p class="card-text">엄선된 고품질 천혜향 5kg</p>
+                <p class="card-text fw-bold text-danger">46,000원</p>
+                <div class="d-flex gap-2">
+                  <a
+                    href="product-5kg.html"
+                    class="btn btn-outline-secondary flex-grow-1"
+                  >
+                    상세보기
+                  </a>
+                  <a
+                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                    class="btn btn-order flex-grow-1"
+                  >
+                    주문하기
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="card mb-4 position-relative">
+              <span class="discount-badge">정가 대비 29% 할인</span>
+              <img src="./img.png" class="card-img-top" alt="비품 10kg" />
+              <div class="card-body">
+                <h5 class="card-title">비품 10kg</h5>
                 <p class="card-text">
-                  가족들과 함께 즐기기 좋은 5kg 상품입니다.
+                  모양이 조금 불균일하지만 맛은 동일한 천혜향 10kg
                 </p>
-                <a href="product-5kg.html" class="btn btn-warning">
-                  상세보기
-                </a>
+                <p class="card-text fw-bold text-danger">62,000원</p>
+                <div class="d-flex gap-2">
+                  <a
+                    href="bproduct-10kg.html"
+                    class="btn btn-outline-secondary flex-grow-1"
+                  >
+                    상세보기
+                  </a>
+                  <a
+                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                    class="btn btn-order flex-grow-1"
+                  >
+                    주문하기
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 position-relative">
+              <span class="discount-badge">정가 대비 24% 할인</span>
+              <img src="./img.png" class="card-img-top" alt="비품 5kg" />
+              <div class="card-body">
+                <h5 class="card-title">비품 5kg</h5>
+                <p class="card-text">
+                  모양이 조금 불균일하지만 맛은 동일한 천혜향 5kg
+                </p>
+                <p class="card-text fw-bold text-danger">35,000원</p>
+                <div class="d-flex gap-2">
+                  <a
+                    href="bproduct-5kg.html"
+                    class="btn btn-outline-secondary flex-grow-1"
+                  >
+                    상세보기
+                  </a>
+                  <a
+                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                    class="btn btn-order flex-grow-1"
+                  >
+                    주문하기
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -112,5 +318,15 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // 캐러셀 자동 전환 속도 조절 (기본값은 5000ms = 5초)
+      document.addEventListener("DOMContentLoaded", function () {
+        const myCarousel = document.getElementById("farmCarousel");
+        const carousel = new bootstrap.Carousel(myCarousel, {
+          interval: 3500, // 3.5초마다 슬라이드 변경
+          pause: false, // 마우스 호버 시 멈춤 방지
+        });
+      });
+    </script>
   </body>
 </html>

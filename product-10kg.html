@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제주 향이네 농장 - 천혜향 상품 10kg</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Fonts 링크 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 구기체 폰트 적용 */
+      .gugi-font {
+        font-family: "Gugi", cursive;
+        color: #ff6f00;
+        letter-spacing: 0.02em;
+      }
+      .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .specs {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-top: 15px;
+      }
+      .price-tag {
+        font-size: 1.8rem;
+        color: #198754;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .premium-badge {
+        background-color: #198754;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+      }
+      .quality-card {
+        border-left: 4px solid #fd7e14;
+        background-color: #fff8e6;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+      }
+      .btn-order {
+        background-color: #fd7e14;
+        border-color: #fd7e14;
+        color: white;
+      }
+      .btn-order:hover {
+        background-color: #e86e06;
+        border-color: #e86e06;
+        color: white;
+      }
+      .action-buttons {
+        margin: 20px 0;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 50px;
+        height: 50px;
+        background-color: #fd7e14;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        text-decoration: none;
+      }
+      .back-to-top:hover {
+        background-color: #e86e06;
+        color: white;
+        transform: translateY(-3px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand gugi-font" href="index.html">
+          🍊 제주 향이네 농장
+        </a>
+      </div>
+    </nav>
+
+    <!-- 상품 상세 정보 -->
+    <div class="container my-5">
+      <div class="row">
+        <!-- 상품 이미지 -->
+        <div class="col-md-6 mb-4">
+          <img src="./img.png" class="product-image" alt="천혜향 상품 10kg" />
+          <div class="text-center mt-3">
+            <span class="badge bg-success">품질 보장</span>
+            <span class="badge bg-warning text-dark">제주 직배송</span>
+            <span class="badge bg-info">신선 보장</span>
+          </div>
+        </div>
+
+        <!-- 상품 정보 -->
+        <div class="col-md-6">
+          <h1 class="mb-2">천혜향 상품 10kg</h1>
+          <p class="price-tag">
+            87,000원 <span class="premium-badge">최상품</span>
+          </p>
+          <p class="lead mb-4">
+            대가족이나 사무실에서 넉넉하게 즐기는 제주 직송 프리미엄
+            천혜향입니다.
+          </p>
+
+          <!-- 주문하기/돌아가기 버튼 -->
+          <div class="action-buttons">
+            <a
+              href="https://forms.gle/VLHckk8MLX5qNtXNA"
+              class="btn btn-order btn-lg"
+              >주문하기</a
+            >
+            <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2"
+              >돌아가기</a
+            >
+          </div>
+
+          <div class="alert alert-danger mb-4" role="alert">
+            <h5>🚚 배송 안내</h5>
+            <p class="mb-0">
+              3월 10일부터 발송가능합니다.<br />
+              일요일, 화요일, 목요일만 발송예정입니다.
+            </p>
+          </div>
+
+          <div class="quality-card mb-4">
+            <h5>🍊 프리미엄 품질</h5>
+            <p class="mb-0">
+              향이네 농장의 상품 등급 천혜향은 최상급 품질로, 크기와 모양이
+              균일하고 당도가 높은 천혜향만을 엄선하여 보내드립니다. 10kg
+              대용량으로 더 저렴하게 즐기세요.
+            </p>
+          </div>
+
+          <!-- 상품 설명을 먼저 배치 -->
+          <div class="mb-4">
+            <h4>상품 10kg 설명</h4>
+            <p>
+              제주 서귀포 향이네 감귤 농장에서 직접 재배한 프리미엄
+              천혜향입니다. 최적의 수확 시기를 맞춰 수확하여 당도가 높고 과즙이
+              풍부한 천혜향만을 엄격하게 선별합니다.
+            </p>
+            <p>
+              10kg 대용량 세트는 대가족이나 사무실에서 함께 나눠 먹기 좋은
+              넉넉한 양입니다. 천혜향 특유의 달콤함과 향긋한 향을 오래도록
+              즐기실 수 있으며, 대용량으로 구매하시면 kg당 가격이 더 저렴해
+              경제적입니다.
+            </p>
+
+            <!-- 스펙 정보는 설명 아래에 배치 -->
+            <div class="specs">
+              <ul class="list-unstyled">
+                <li><strong>중량:</strong> 10kg (크기당 약 30-36과)</li>
+                <li><strong>당도:</strong> 평균 12-13 Brix 이상</li>
+                <li><strong>등급:</strong> 상품 (크기 균일, 외관 우수)</li>
+                <li><strong>수확:</strong> 농장 직송 당일 수확</li>
+                <li><strong>배송:</strong> 택배배송 (제주 직송)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 상단으로 이동 버튼 -->
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // 스크롤 버튼 기능
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopButton = document.getElementById("backToTop");
+
+        // 초기에는 버튼 숨기기
+        backToTopButton.style.display = "none";
+
+        // 스크롤 이벤트
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            // 300px 이상 스크롤 시 버튼 표시
+            backToTopButton.style.display = "flex";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+
+        // 클릭 이벤트
+        backToTopButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
