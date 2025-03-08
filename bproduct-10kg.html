@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제주 향이네 농장 - 천혜향 비품 10kg</title>
+    <title>제주 향이네 농장</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -96,6 +96,50 @@
         background-color: #e86e06;
         color: white;
         transform: translateY(-3px);
+      }
+      /* 푸터 스타일 */
+      .footer {
+        background-color: #f8f9fa;
+        padding: 40px 0 20px;
+        color: #6c757d;
+        border-top: 1px solid #e9ecef;
+        margin-top: 30px;
+      }
+      .footer-logo {
+        margin-bottom: 20px;
+      }
+      .footer h5 {
+        color: #495057;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      .social-icons {
+        font-size: 1.5rem;
+        margin-top: 15px;
+      }
+      .social-icons a {
+        color: #6c757d;
+        margin-right: 15px;
+      }
+      .social-icons a:hover {
+        color: #fd7e14;
+      }
+      .footer-bottom {
+        border-top: 1px solid #e9ecef;
+        padding-top: 20px;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+      /* 기존 스타일 */
+      .fas {
+        margin-right: 8px;
+        color: #fd7e14;
+      }
+
+      /* 추가할 스타일 */
+      .back-to-top .fas {
+        margin-right: 0;
+        color: white;
       }
     </style>
   </head>
@@ -194,6 +238,49 @@
         </div>
       </div>
     </div>
+
+    <!-- 푸터 섹션 추가 -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+            <div class="footer-logo">
+              <span class="gugi-font" style="font-size: 1.5rem">
+                🍊 제주 향이네 농장
+              </span>
+            </div>
+            <p>
+              제주도 서귀포시에서 3대째 이어오는 감귤 농장입니다.<br />
+              정성과 사랑으로 키운 제주 감귤을 전국 각지에 보내드립니다.
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.instagram.com/hyangsfarm?igsh=MWxjcHNybmI0d3Qwaw=="
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <!-- <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <h5>고객지원</h5>
+            <address>
+              <p>
+                <i class="fas fa-map-marker-alt mr-2"></i> 제주특별자치도
+                서귀포시 남원읍 태신로 326
+              </p>
+              <p><i class="fas fa-phone-alt mr-2"></i> 010-2698-6431</p>
+              <p><i class="fas fa-envelope mr-2"></i> lynnjean72@naver.com</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+          <p class="mb-0">&copy; 2025 제주 향이네 농장 | 대표 : 오행숙</p>
+        </div>
+      </div>
+    </footer>
 
     <!-- 상단으로 이동 버튼 -->
     <a href="#" class="back-to-top" id="backToTop">
