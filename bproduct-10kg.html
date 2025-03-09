@@ -19,6 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="./main-logo.png" type="image/x-icon" />
+
     <style>
       /* 구기체 폰트 적용 */
       .gugi-font {
@@ -113,14 +115,20 @@
         margin-bottom: 15px;
         font-weight: 600;
       }
+      /* 기존 social-icons 스타일 유지 */
       .social-icons {
         font-size: 1.5rem;
         margin-top: 15px;
+        display: flex; /* flex로 변경 */
+        align-items: center; /* 세로 중앙 정렬 */
+        gap: 15px; /* 간격 조정 */
       }
+
       .social-icons a {
         color: #6c757d;
-        margin-right: 15px;
+        display: block;
       }
+
       .social-icons a:hover {
         color: #fd7e14;
       }
@@ -141,6 +149,105 @@
         margin-right: 0;
         color: white;
       }
+      /* 인스타그램 아이콘 스타일 */
+      .insta-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .insta-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .insta-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .insta-icon-link:hover .insta-normal {
+        opacity: 0;
+      }
+
+      .insta-icon-link:hover .insta-hover {
+        opacity: 1;
+      }
+
+      /* 카카오톡 아이콘 스타일 (기존과 동일) */
+      .kakao-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .kakao-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .kakao-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .kakao-icon-link:hover .kakao-normal {
+        opacity: 0;
+      }
+
+      .kakao-icon-link:hover .kakao-hover {
+        opacity: 1;
+      }
+
+      .insta-hover,
+      .kakao-hover {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* 캐러셀 커스텀 스타일 */
+      #productCarousel {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .carousel-control-prev {
+        left: 10px;
+      }
+
+      .carousel-control-next {
+        right: 10px;
+      }
+
+      /* 썸네일 이미지 스타일 */
+      .thumbnail-img {
+        cursor: pointer;
+        height: 80px;
+        object-fit: cover;
+        transition: all 0.3s;
+        opacity: 0.7;
+      }
+
+      .thumbnail-img:hover,
+      .thumbnail-img.active {
+        opacity: 1;
+        border-color: #fd7e14;
+      }
     </style>
   </head>
   <body>
@@ -156,9 +263,95 @@
     <!-- 상품 상세 정보 -->
     <div class="container my-5">
       <div class="row">
-        <!-- 상품 이미지 -->
+        <!-- 상품 이미지 (여러 개의 이미지를 보여주는 슬라이더로 변경) -->
         <div class="col-md-6 mb-4">
-          <img src="./img.png" class="product-image" alt="천혜향 비품 10kg" />
+          <!-- 메인 이미지 슬라이더 -->
+          <div
+            id="productCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="./img/비품.jpeg"
+                  class="d-block w-100 product-image"
+                  alt="천혜향 비품 10kg 이미지 1"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./img/info.png"
+                  class="d-block w-100 product-image"
+                  alt="천혜향 비품 10kg 이미지 2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./img/farm-info.png"
+                  class="d-block w-100 product-image"
+                  alt="천혜향 비품 10kg 이미지 3"
+                />
+              </div>
+            </div>
+            <!-- 이전/다음 버튼 -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#productCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">이전</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#productCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">다음</span>
+            </button>
+          </div>
+
+          <!-- 썸네일 이미지들 -->
+          <div class="row mt-3 thumbnail-container">
+            <div class="col-3">
+              <img
+                src="./img/비품.jpeg"
+                class="img-thumbnail thumbnail-img active"
+                alt="썸네일 1"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="0"
+              />
+            </div>
+            <div class="col-3">
+              <img
+                src="./img/info.png"
+                class="img-thumbnail thumbnail-img"
+                alt="썸네일 2"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="1"
+              />
+            </div>
+            <div class="col-3">
+              <img
+                src="./img/farm-info.png"
+                class="img-thumbnail thumbnail-img"
+                alt="썸네일 3"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="2"
+              />
+            </div>
+          </div>
+
           <div class="text-center mt-3">
             <span class="badge bg-danger">가성비 최고</span>
             <span class="badge bg-warning text-dark">제주 직배송</span>
@@ -250,14 +443,41 @@
               </span>
             </div>
             <p>
-              제주도 서귀포시에서 3대째 이어오는 감귤 농장입니다.<br />
-              정성과 사랑으로 키운 제주 감귤을 전국 각지에 보내드립니다.
+              서귀포시 남원에서 3대째 감귤을 생산하는 향이네 농장입니다.<br />
+              남원의 따스한 햇살과 농민의 정성과 사랑으로 제주 감귤을 전국으로
+              보내드립니다.
             </p>
             <div class="social-icons">
+              <!-- 인스타그램 아이콘을 이미지로 변경 -->
               <a
                 href="https://www.instagram.com/hyangsfarm?igsh=MWxjcHNybmI0d3Qwaw=="
-                ><i class="fab fa-instagram"></i
-              ></a>
+                class="insta-icon-link"
+              >
+                <img
+                  src="./img/logo/insta-logo.png"
+                  class="insta-icon insta-normal"
+                  alt="인스타그램"
+                />
+                <img
+                  src="./img/logo/insta-logo-click.png"
+                  class="insta-icon insta-hover"
+                  alt="인스타그램"
+                />
+              </a>
+
+              <!-- 카카오톡 아이콘 -->
+              <a href="http://pf.kakao.com/_INznn" class="kakao-icon-link">
+                <img
+                  src="./img/logo/kakao-logo.png"
+                  class="kakao-icon kakao-normal"
+                  alt="카카오톡"
+                />
+                <img
+                  src="./img/logo/kakao-logo-click.png"
+                  class="kakao-icon kakao-hover"
+                  alt="카카오톡"
+                />
+              </a>
               <!-- <a href="#"><i class="fab fa-facebook"></i></a>
               <a href="#"><i class="fab fa-youtube"></i></a> -->
             </div>
@@ -289,8 +509,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-      // 스크롤 버튼 기능
       document.addEventListener("DOMContentLoaded", function () {
+        // 스크롤 버튼 기능
         const backToTopButton = document.getElementById("backToTop");
 
         // 초기에는 버튼 숨기기
@@ -314,6 +534,51 @@
             behavior: "smooth",
           });
         });
+
+        // 썸네일 기능 추가
+        // 모든 썸네일 이미지 가져오기
+        const thumbnails = document.querySelectorAll(".thumbnail-img");
+
+        // 캐러셀 인스턴스 가져오기
+        const carousel = new bootstrap.Carousel(
+          document.getElementById("productCarousel"),
+          {
+            interval: 5000, // 슬라이드 자동 전환 간격(ms)
+            wrap: true, // 마지막 슬라이드에서 처음으로 순환
+          }
+        );
+
+        // 썸네일 클릭 이벤트
+        thumbnails.forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function () {
+            // 모든 썸네일에서 active 클래스 제거
+            thumbnails.forEach((t) => t.classList.remove("active"));
+
+            // 클릭된 썸네일에 active 클래스 추가
+            this.classList.add("active");
+
+            // 캐러셀 슬라이드 이동
+            const slideIndex = this.getAttribute("data-bs-slide-to");
+            carousel.to(slideIndex);
+          });
+        });
+
+        // 캐러셀 슬라이드 변경 시 썸네일 active 클래스 업데이트
+        document
+          .getElementById("productCarousel")
+          .addEventListener("slid.bs.carousel", function (event) {
+            // 모든 썸네일에서 active 클래스 제거
+            thumbnails.forEach((t) => t.classList.remove("active"));
+
+            // 현재 슬라이드 인덱스에 해당하는 썸네일에 active 클래스 추가
+            const activeIndex = event.to;
+            const activeThumb = document.querySelector(
+              `.thumbnail-img[data-bs-slide-to="${activeIndex}"]`
+            );
+            if (activeThumb) {
+              activeThumb.classList.add("active");
+            }
+          });
       });
     </script>
   </body>

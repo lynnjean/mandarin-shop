@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="logo.png" type="image/x-icon" />
+    <link rel="icon" href="./main-logo.png" type="image/x-icon" />
     <style>
       /* 구기체 폰트 적용 */
       .gugi-font {
@@ -120,17 +120,24 @@
         margin-bottom: 15px;
         font-weight: 600;
       }
+      /* 기존 social-icons 스타일 유지 */
       .social-icons {
         font-size: 1.5rem;
         margin-top: 15px;
+        display: flex; /* flex로 변경 */
+        align-items: center; /* 세로 중앙 정렬 */
+        gap: 15px; /* 간격 조정 */
       }
+
       .social-icons a {
         color: #6c757d;
-        margin-right: 15px;
+        display: block;
       }
+
       .social-icons a:hover {
         color: #fd7e14;
       }
+
       .footer-bottom {
         border-top: 1px solid #e9ecef;
         padding-top: 20px;
@@ -143,6 +150,66 @@
       }
       .display-4.fw-bold.gugi-font {
         color: white;
+      }
+
+      /* 인스타그램 아이콘 스타일 */
+      .insta-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .insta-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .insta-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .insta-icon-link:hover .insta-normal {
+        opacity: 0;
+      }
+
+      .insta-icon-link:hover .insta-hover {
+        opacity: 1;
+      }
+
+      /* 카카오톡 아이콘 스타일 (기존과 동일) */
+      .kakao-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .kakao-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .kakao-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .kakao-icon-link:hover .kakao-normal {
+        opacity: 0;
+      }
+
+      .kakao-icon-link:hover .kakao-hover {
+        opacity: 1;
+      }
+
+      .insta-hover,
+      .kakao-hover {
+        width: 50px;
+        height: 50px;
       }
     </style>
   </head>
@@ -163,7 +230,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="./IMG_2042.JPG"
+              src="./img/slider1.jpeg"
               class="d-block w-100"
               alt="농장 이미지 1"
               style="height: 550px; object-fit: cover"
@@ -171,9 +238,25 @@
           </div>
           <div class="carousel-item">
             <img
-              src="./IMG_2043.JPG"
+              src="./img/slider2.jpeg"
               class="d-block w-100"
               alt="농장 이미지 2"
+              style="height: 550px; object-fit: cover"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/slider3.JPG"
+              class="d-block w-100"
+              alt="농장 이미지 3"
+              style="height: 550px; object-fit: cover"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./img/slider4.JPG"
+              class="d-block w-100"
+              alt="농장 이미지 4"
               style="height: 550px; object-fit: cover"
             />
           </div>
@@ -193,7 +276,7 @@
             제주 향이네 농장
           </h1>
           <p class="lead" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8)">
-            신선한 제주 감귤을 집에서 만나보세요
+            따스한 햇살을 받고 자란 감귤을 집에서 만나보세요
           </p>
           <a
             href="https://forms.gle/VLHckk8MLX5qNtXNA"
@@ -234,14 +317,18 @@
         <h2 class="text-center mb-4">향이네 농장 소식</h2>
         <div class="farm-notice">
           <h4>🍊 천혜향 판매 안내</h4>
-          <p>향이네 농장에서 달콤한 천혜향을 판매합니다!</p>
+          <p>
+            향이네 농장에서 새콤달콤한 천혜향을 판매합니다! 제주 남원에서
+            수확하는 천혜향을 집에서 맛보세요.
+          </p>
           <ul>
             <li><strong>발송 시작일:</strong> 3월 10일부터</li>
             <li><strong>발송 요일:</strong> 일요일, 화요일, 목요일</li>
           </ul>
           <p class="farm-alert">
-            <strong>주의!</strong> 현재 과일에 신맛이 조금 있습니다. 신맛을
-            싫어하시는 분들은 3월 말에 주문해주세요.
+            <strong>참고사항!</strong>수확 초기에는 과일에 신맛이 조금 남아있을
+            수 있습니다. 신맛을 선호하지 않는 고객님은 3월 말에 주문해주시면
+            달콤한 천혜향을 맛보실 수 있습니다.
           </p>
         </div>
       </div>
@@ -255,7 +342,7 @@
           <div class="col-md-6">
             <div class="card mb-4 position-relative">
               <span class="premium-badge">최상품</span>
-              <img src="./img.png" class="card-img-top" alt="상품 10kg" />
+              <img src="./img/상품.jpeg" class="card-img-top" alt="상품 10kg" />
               <div class="card-body">
                 <h5 class="card-title">상품 10kg</h5>
                 <p class="card-text">엄선된 고품질 천혜향 10kg</p>
@@ -280,7 +367,7 @@
           <div class="col-md-6">
             <div class="card mb-4 position-relative">
               <span class="premium-badge">최상품</span>
-              <img src="./img.png" class="card-img-top" alt="상품 5kg" />
+              <img src="./img/상품.jpeg" class="card-img-top" alt="상품 5kg" />
               <div class="card-body">
                 <h5 class="card-title">상품 5kg</h5>
                 <p class="card-text">엄선된 고품질 천혜향 5kg</p>
@@ -307,7 +394,7 @@
           <div class="col-md-6">
             <div class="card mb-4 position-relative">
               <span class="discount-badge">정가 대비 29% 할인</span>
-              <img src="./img.png" class="card-img-top" alt="비품 10kg" />
+              <img src="./img/비품.jpeg" class="card-img-top" alt="비품 10kg" />
               <div class="card-body">
                 <h5 class="card-title">비품 10kg</h5>
                 <p class="card-text">
@@ -334,7 +421,7 @@
           <div class="col-md-6">
             <div class="card mb-4 position-relative">
               <span class="discount-badge">정가 대비 24% 할인</span>
-              <img src="./img.png" class="card-img-top" alt="비품 5kg" />
+              <img src="./img/비품.jpeg" class="card-img-top" alt="비품 5kg" />
               <div class="card-body">
                 <h5 class="card-title">비품 5kg</h5>
                 <p class="card-text">
@@ -373,14 +460,41 @@
               >
             </div>
             <p>
-              제주도 서귀포시에서 3대째 이어오는 감귤 농장입니다.<br />
-              정성과 사랑으로 키운 제주 감귤을 전국 각지에 보내드립니다.
+              서귀포시 남원에서 3대째 감귤을 생산하는 향이네 농장입니다.<br />
+              남원의 따스한 햇살과 농민의 정성과 사랑으로 제주 감귤을 전국으로
+              보내드립니다.
             </p>
             <div class="social-icons">
+              <!-- 인스타그램 아이콘을 이미지로 변경 -->
               <a
                 href="https://www.instagram.com/hyangsfarm?igsh=MWxjcHNybmI0d3Qwaw=="
-                ><i class="fab fa-instagram"></i
-              ></a>
+                class="insta-icon-link"
+              >
+                <img
+                  src="./img/logo/insta-logo.png"
+                  class="insta-icon insta-normal"
+                  alt="인스타그램"
+                />
+                <img
+                  src="./img/logo/insta-logo-click.png"
+                  class="insta-icon insta-hover"
+                  alt="인스타그램"
+                />
+              </a>
+
+              <!-- 카카오톡 아이콘 -->
+              <a href="http://pf.kakao.com/_INznn" class="kakao-icon-link">
+                <img
+                  src="./img/logo/kakao-logo.png"
+                  class="kakao-icon kakao-normal"
+                  alt="카카오톡"
+                />
+                <img
+                  src="./img/logo/kakao-logo-click.png"
+                  class="kakao-icon kakao-hover"
+                  alt="카카오톡"
+                />
+              </a>
               <!-- <a href="#"><i class="fab fa-facebook"></i></a>
               <a href="#"><i class="fab fa-youtube"></i></a> -->
             </div>
