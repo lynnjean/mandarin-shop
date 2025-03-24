@@ -104,6 +104,18 @@
         border-color: #e86e06;
         color: white;
       }
+      /* 품절 버튼 스타일 */
+      .btn-sold-out {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+        cursor: not-allowed;
+      }
+      .btn-sold-out:hover {
+        background-color: #5a6268;
+        border-color: #5a6268;
+        color: white;
+      }
       /* 푸터 스타일 */
       .footer {
         background-color: #f8f9fa;
@@ -354,12 +366,15 @@
                   >
                     상세보기
                   </a>
-                  <a
+                  <!-- <a
                     href="https://forms.gle/VLHckk8MLX5qNtXNA"
                     class="btn btn-order flex-grow-1"
                   >
                     주문하기
-                  </a>
+                  </a> -->
+                  <button class="btn btn-sold-out flex-grow-1" disabled>
+                    품절
+                  </button>
                 </div>
               </div>
             </div>
@@ -379,12 +394,15 @@
                   >
                     상세보기
                   </a>
-                  <a
+                  <!-- <a
                     href="https://forms.gle/VLHckk8MLX5qNtXNA"
                     class="btn btn-order flex-grow-1"
                   >
                     주문하기
-                  </a>
+                  </a> -->
+                  <button class="btn btn-sold-out flex-grow-1" disabled>
+                    품절
+                  </button>
                 </div>
               </div>
             </div>

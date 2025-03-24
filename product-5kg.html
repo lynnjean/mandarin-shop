@@ -72,6 +72,18 @@
         border-color: #e86e06;
         color: white;
       }
+      /* 품절 버튼 스타일 */
+      .btn-sold-out {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+        cursor: not-allowed;
+      }
+      .btn-sold-out:hover {
+        background-color: #5a6268;
+        border-color: #5a6268;
+        color: white;
+      }
       .action-buttons {
         margin: 20px 0;
       }
@@ -371,11 +383,12 @@
 
           <!-- 주문하기/돌아가기 버튼 -->
           <div class="action-buttons">
-            <a
+            <button class="btn btn-sold-out btn-lg" disabled>품절</button>
+            <!-- <a
               href="https://forms.gle/VLHckk8MLX5qNtXNA"
               class="btn btn-order btn-lg"
               >주문하기</a
-            >
+            > -->
             <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2"
               >돌아가기</a
             >
