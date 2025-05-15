@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제주 향이네 농장</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Fonts 링크 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./main-logo.png" type="image/x-icon" />
+
+    <style>
+      /* 구기체 폰트 적용 */
+      .gugi-font {
+        font-family: "Gugi", cursive;
+        color: #ff6f00;
+        letter-spacing: 0.02em;
+      }
+      .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .specs {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-top: 15px;
+      }
+      .price-tag {
+        font-size: 1.8rem;
+        color: #198754;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .premium-badge {
+        background-color: #198754;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+      }
+      .quality-card {
+        border-left: 4px solid #fd7e14;
+        background-color: #fff8e6;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+      }
+      .btn-order {
+        background-color: #fd7e14;
+        border-color: #fd7e14;
+        color: white;
+      }
+      .btn-order:hover {
+        background-color: #e86e06;
+        border-color: #e86e06;
+        color: white;
+      }
+      /* 품절 버튼 스타일 */
+      .btn-sold-out {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+        cursor: not-allowed;
+      }
+      .btn-sold-out:hover {
+        background-color: #5a6268;
+        border-color: #5a6268;
+        color: white;
+      }
+      .action-buttons {
+        margin: 20px 0;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 50px;
+        height: 50px;
+        background-color: #fd7e14;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        text-decoration: none;
+      }
+      .back-to-top:hover {
+        background-color: #e86e06;
+        color: white;
+        transform: translateY(-3px);
+      }
+      /* 푸터 스타일 */
+      .footer {
+        background-color: #f8f9fa;
+        padding: 40px 0 20px;
+        color: #6c757d;
+        border-top: 1px solid #e9ecef;
+        margin-top: 30px;
+      }
+      .footer-logo {
+        margin-bottom: 20px;
+      }
+      .footer h5 {
+        color: #495057;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      /* 기존 social-icons 스타일 유지 */
+      .social-icons {
+        font-size: 1.5rem;
+        margin-top: 15px;
+        display: flex; /* flex로 변경 */
+        align-items: center; /* 세로 중앙 정렬 */
+        gap: 15px; /* 간격 조정 */
+      }
+
+      .social-icons a {
+        color: #6c757d;
+        display: block;
+      }
+
+      .social-icons a:hover {
+        color: #fd7e14;
+      }
+      .footer-bottom {
+        border-top: 1px solid #e9ecef;
+        padding-top: 20px;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+      /* 기존 스타일 */
+      .fas {
+        margin-right: 8px;
+        color: #fd7e14;
+      }
+
+      /* 추가할 스타일 */
+      .back-to-top .fas {
+        margin-right: 0;
+        color: white;
+      }
+      /* 인스타그램 아이콘 스타일 */
+      .insta-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .insta-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .insta-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .insta-icon-link:hover .insta-normal {
+        opacity: 0;
+      }
+
+      .insta-icon-link:hover .insta-hover {
+        opacity: 1;
+      }
+
+      /* 카카오톡 아이콘 스타일 (기존과 동일) */
+      .kakao-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .kakao-icon-link {
+        position: relative;
+        display: inline-flex;
+      }
+
+      .kakao-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .kakao-icon-link:hover .kakao-normal {
+        opacity: 0;
+      }
+
+      .kakao-icon-link:hover .kakao-hover {
+        opacity: 1;
+      }
+
+      .insta-hover,
+      .kakao-hover {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* 캐러셀 커스텀 스타일 */
+      #productCarousel {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .carousel-control-prev {
+        left: 10px;
+      }
+
+      .carousel-control-next {
+        right: 10px;
+      }
+
+      /* 썸네일 이미지 스타일 */
+      .thumbnail-img {
+        cursor: pointer;
+        height: 80px;
+        object-fit: cover;
+        transition: all 0.3s;
+        opacity: 0.7;
+      }
+
+      .thumbnail-img:hover,
+      .thumbnail-img.active {
+        opacity: 1;
+        border-color: #fd7e14;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand gugi-font" href="../index.html">
+          🍊 제주 향이네 농장
+        </a>
+      </div>
+    </nav>
+
+    <!-- 상품 상세 정보 -->
+    <div class="container my-5">
+      <div class="row">
+        <!-- 상품 이미지 (여러 개의 이미지를 보여주는 슬라이더로 변경) -->
+        <div class="col-md-6 mb-4">
+          <!-- 메인 이미지 슬라이더 -->
+          <div
+            id="productCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="../img/farm-info.png"
+                  class="d-block w-100 product-image"
+                  alt="농장 정보"
+                />
+              </div>
+              <!-- <div class="carousel-item">
+                <img
+                  src="./img/info.png"
+                  class="d-block w-100 product-image"
+                  alt="천혜향 상품 5kg 이미지 2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./img/farm-info.png"
+                  class="d-block w-100 product-image"
+                  alt="천혜향 상품 5kg 이미지 3"
+                />
+              </div> -->
+            </div>
+            <!-- 이전/다음 버튼 -->
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#productCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">이전</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#productCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">다음</span>
+            </button>
+          </div>
+
+          <!-- 썸네일 이미지들 -->
+          <!-- <div class="row mt-3 thumbnail-container">
+            <div class="col-3">
+              <img
+                src="./img/상품.jpeg"
+                class="img-thumbnail thumbnail-img active"
+                alt="썸네일 1"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="0"
+              />
+            </div>
+            <div class="col-3">
+              <img
+                src="./img/info.png"
+                class="img-thumbnail thumbnail-img"
+                alt="썸네일 2"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="1"
+              />
+            </div>
+            <div class="col-3">
+              <img
+                src="./img/farm-info.png"
+                class="img-thumbnail thumbnail-img"
+                alt="썸네일 3"
+                data-bs-target="#productCarousel"
+                data-bs-slide-to="2"
+              />
+            </div>
+          </div> -->
+
+          <div class="text-center mt-3">
+            <span class="badge bg-success">품질 보장</span>
+            <span class="badge bg-warning text-dark">제주 직배송</span>
+            <span class="badge bg-info">신선 보장</span>
+          </div>
+        </div>
+
+        <!-- 상품 정보 -->
+        <div class="col-md-6">
+          <h1 class="mb-2">카라향(남진해) 상품 5kg</h1>
+          <p class="price-tag">
+            32,000원 <span class="premium-badge">최상품</span>
+          </p>
+          <p class="lead mb-4">
+            가정에서 즐기기 딱 좋은 양의 제주 직송 프리미엄
+            카라향(남진해)입니다.
+          </p>
+
+          <!-- 주문하기/돌아가기 버튼 -->
+          <div class="action-buttons">
+            <!-- <button class="btn btn-sold-out btn-lg" disabled>품절</button> -->
+            <a
+              href="https://forms.gle/KhuKKfuTpVnMXAhaA"
+              class="btn btn-order btn-lg"
+              >주문하기</a
+            >
+            <a
+              href="../index.html"
+              class="btn btn-outline-secondary btn-lg ms-2"
+              >돌아가기</a
+            >
+          </div>
+
+          <div class="alert alert-danger mb-4" role="alert">
+            <h5>🚚 배송 안내</h5>
+            <p class="mb-0">
+              5월 7일부터 발송가능합니다.<br />
+              <!-- 월요일, 목요일만 발송예정입니다. -->
+            </p>
+          </div>
+
+          <div class="quality-card mb-4">
+            <h5>🍊 프리미엄 품질</h5>
+            <p class="mb-0">
+              향이네 농장의 상품 등급 카라향(남진해)은 최상급 품질로, 크기와
+              모양이 균일하고 당도가 높은 카라향(남진해)만을 엄선하여
+              보내드립니다.
+            </p>
+          </div>
+
+          <!-- 상품 설명을 먼저 배치 -->
+          <div class="mb-4">
+            <h4>상품 5kg 설명</h4>
+            <p>
+              제주 서귀포 향이네 감귤 농장에서 직접 재배한 프리미엄
+              카라향(남진해)입니다. 일교차가 큰 제주 자연환경 속에서 정성껏
+              길러낸 카라향은 최적의 시기에 수확되어 당도가 높고 과즙이
+              가득합니다.
+            </p>
+            <p>
+              카라향(남진해)은 진한 향기와 쫀득한 식감, 그리고 입안 가득 퍼지는
+              달콤한 맛이 일품으로, 한 번 맛보면 쉽게 잊기 어려운 감동을
+              전합니다. 5kg 세트는 2~3인 가족이 약 2~3주간 즐기기에 적당한
+              양으로, 선물용은 물론 가정에서도 인기가 높습니다.
+            </p>
+
+            <!-- 스펙 정보는 설명 아래에 배치 -->
+            <div class="specs">
+              <ul class="list-unstyled">
+                <li><strong>중량:</strong> 5kg (혼합 30개-40개)</li>
+                <li><strong>당도:</strong> 평균 14 Brix 이상</li>
+                <li><strong>등급:</strong> 상품 (외관 우수)</li>
+                <li><strong>수확:</strong> 농장 직송 당일 수확</li>
+                <li><strong>배송:</strong> 택배배송 (제주 직송)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터 섹션 추가 -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+            <div class="footer-logo">
+              <span class="gugi-font" style="font-size: 1.5rem">
+                🍊 제주 향이네 농장
+              </span>
+            </div>
+            <p>
+              서귀포시 남원에서 3대째 감귤을 생산하는 향이네 농장입니다.<br />
+              남원의 따스한 햇살과 농민의 정성과 사랑으로 제주 감귤을 전국으로
+              보내드립니다.
+            </p>
+            <div class="social-icons">
+              <!-- 인스타그램 아이콘을 이미지로 변경 -->
+              <a
+                href="https://www.instagram.com/hyangsfarm?igsh=MWxjcHNybmI0d3Qwaw=="
+                class="insta-icon-link"
+              >
+                <img
+                  src="../img/logo/insta-logo.png"
+                  class="insta-icon insta-normal"
+                  alt="인스타그램"
+                />
+                <img
+                  src="../img/logo/insta-logo-click.png"
+                  class="insta-icon insta-hover"
+                  alt="인스타그램"
+                />
+              </a>
+
+              <!-- 카카오톡 아이콘 -->
+              <a href="http://pf.kakao.com/_INznn" class="kakao-icon-link">
+                <img
+                  src="../img/logo/kakao-logo.png"
+                  class="kakao-icon kakao-normal"
+                  alt="카카오톡"
+                />
+                <img
+                  src="../img/logo/kakao-logo-click.png"
+                  class="kakao-icon kakao-hover"
+                  alt="카카오톡"
+                />
+              </a>
+              <!-- <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <h5>고객지원</h5>
+            <address>
+              <p>
+                <i class="fas fa-map-marker-alt mr-2"></i> 제주특별자치도
+                서귀포시 남원읍 태신로 326
+              </p>
+              <p><i class="fas fa-phone-alt mr-2"></i> 010-2698-6431</p>
+              <p><i class="fas fa-envelope mr-2"></i> lynnjean72@naver.com</p>
+            </address>
+          </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+          <p class="mb-0">&copy; 2025 제주 향이네 농장 | 대표 : 오행숙</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 상단으로 이동 버튼 -->
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 스크롤 버튼 기능
+        const backToTopButton = document.getElementById("backToTop");
+
+        // 초기에는 버튼 숨기기
+        backToTopButton.style.display = "none";
+
+        // 스크롤 이벤트
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            // 300px 이상 스크롤 시 버튼 표시
+            backToTopButton.style.display = "flex";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+
+        // 클릭 이벤트
+        backToTopButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // 썸네일 기능 추가
+        // 모든 썸네일 이미지 가져오기
+        const thumbnails = document.querySelectorAll(".thumbnail-img");
+
+        // 캐러셀 인스턴스 가져오기
+        const carousel = new bootstrap.Carousel(
+          document.getElementById("productCarousel"),
+          {
+            interval: 5000, // 슬라이드 자동 전환 간격(ms)
+            wrap: true, // 마지막 슬라이드에서 처음으로 순환
+          }
+        );
+
+        // 썸네일 클릭 이벤트
+        thumbnails.forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function () {
+            // 모든 썸네일에서 active 클래스 제거
+            thumbnails.forEach((t) => t.classList.remove("active"));
+
+            // 클릭된 썸네일에 active 클래스 추가
+            this.classList.add("active");
+
+            // 캐러셀 슬라이드 이동
+            const slideIndex = this.getAttribute("data-bs-slide-to");
+            carousel.to(slideIndex);
+          });
+        });
+
+        // 캐러셀 슬라이드 변경 시 썸네일 active 클래스 업데이트
+        document
+          .getElementById("productCarousel")
+          .addEventListener("slid.bs.carousel", function (event) {
+            // 모든 썸네일에서 active 클래스 제거
+            thumbnails.forEach((t) => t.classList.remove("active"));
+
+            // 현재 슬라이드 인덱스에 해당하는 썸네일에 active 클래스 추가
+            const activeIndex = event.to;
+            const activeThumb = document.querySelector(
+              `.thumbnail-img[data-bs-slide-to="${activeIndex}"]`
+            );
+            if (activeThumb) {
+              activeThumb.classList.add("active");
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

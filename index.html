@@ -164,6 +164,154 @@
         color: white;
       }
 
+      /* 모바일에서 특징 아이콘 나란히 보이게 하기 */
+      @media (max-width: 767.98px) {
+        .feature-icon {
+          font-size: 2rem !important; /* 아이콘 크기 조정 */
+          margin-bottom: 10px !important;
+        }
+
+        .feature-title {
+          font-size: 0.9rem; /* 제목 크기 조정 */
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .feature-desc {
+          font-size: 0.75rem; /* 설명 텍스트 크기 조정 */
+          line-height: 1.3;
+        }
+
+        .feature-item {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        .features-row {
+          margin-left: -5px;
+          margin-right: -5px;
+        }
+      }
+
+      /* 아주 작은 화면 (320px 등)에서의 추가 최적화 */
+      @media (max-width: 359.98px) {
+        .feature-icon {
+          font-size: 1.8rem !important;
+        }
+
+        .feature-title {
+          font-size: 0.8rem;
+        }
+
+        .feature-desc {
+          font-size: 0.7rem;
+        }
+      }
+      /* 카테고리 탭 스타일 추가 */
+      .nav-tabs {
+        border-bottom: 1px solid #dee2e6;
+        justify-content: flex-start;
+      }
+
+      /* 모바일에서 탭 레이아웃 개선 */
+      @media (max-width: 767.98px) {
+        .nav-tabs {
+          justify-content: center;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          -ms-overflow-style: -ms-autohiding-scrollbar;
+          padding-bottom: 5px;
+        }
+
+        .nav-tabs .nav-item {
+          flex-shrink: 0;
+        }
+
+        .nav-tabs .nav-link {
+          white-space: nowrap;
+          padding: 8px 12px;
+          font-size: 0.9rem;
+        }
+      }
+
+      .nav-tabs .nav-link {
+        color: #6c757d;
+        font-weight: 500;
+        border-radius: 0;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-tabs .nav-link:hover {
+        color: #fd7e14;
+        border-color: transparent;
+      }
+
+      .nav-tabs .nav-link.active {
+        color: #fd7e14;
+        border-color: #dee2e6 #dee2e6 #fff;
+        border-top-width: 1px;
+      }
+
+      /* 카테고리 뱃지 스타일 */
+      .badge {
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-right: 8px;
+      }
+
+      /* 제품 카드 호버 효과 */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 제품 항목에 애니메이션 효과 */
+      .product-item {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* 제품 품절 스타일 (필요시 사용) */
+      .sold-out-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+      }
+
+      .sold-out-text {
+        background: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transform: rotate(-15deg);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
       /* 인스타그램 아이콘 스타일 */
       .insta-icon {
         width: 50px;
@@ -222,6 +370,10 @@
       .kakao-hover {
         width: 50px;
         height: 50px;
+      }
+      .bg-brown {
+        background-color: #a5673f;
+        color: white;
       }
     </style>
   </head>
@@ -291,7 +443,7 @@
             따스한 햇살을 받고 자란 감귤을 집에서 만나보세요
           </p>
           <a
-            href="https://forms.gle/VLHckk8MLX5qNtXNA"
+            href="https://forms.gle/KhuKKfuTpVnMXAhaA"
             class="btn btn-warning btn-lg fw-bold"
           >
             지금 주문하기
@@ -303,21 +455,23 @@
     <!-- 특징 섹션 -->
     <section class="py-5">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 text-center mb-4">
+        <div class="row features-row">
+          <div class="col-4 text-center mb-4 feature-item">
             <div class="feature-icon mb-3">🌊</div>
-            <h3>제주 직송</h3>
-            <p>제주에서 바로 수확한 신선한 감귤을 보내드립니다</p>
+            <h3 class="feature-title">제주 직송</h3>
+            <p class="feature-desc">
+              제주에서 바로 수확한 신선한 감귤을 보내드립니다
+            </p>
           </div>
-          <div class="col-md-4 text-center mb-4">
+          <div class="col-4 text-center mb-4 feature-item">
             <div class="feature-icon mb-3">🍊</div>
-            <h3>엄선된 품질</h3>
-            <p>최상급 감귤만을 선별하여 배송해드립니다</p>
+            <h3 class="feature-title">엄선된 품질</h3>
+            <p class="feature-desc">최상급 감귤만을 선별하여 배송해드립니다</p>
           </div>
-          <div class="col-md-4 text-center mb-4">
+          <div class="col-4 text-center mb-4 feature-item">
             <div class="feature-icon mb-3">📦</div>
-            <h3>안전 배송</h3>
-            <p>꼼꼼한 포장으로 안전하게 배송해드립니다</p>
+            <h3 class="feature-title">안전 배송</h3>
+            <p class="feature-desc">꼼꼼한 포장으로 안전하게 배송해드립니다</p>
           </div>
         </div>
       </div>
@@ -335,7 +489,7 @@
           </p>
           <ul>
             <li><strong>발송 시작일:</strong> 5월 7일부터</li>
-            <li><strong>발송 요일:</strong> 월요일, 목요일</li>
+            <!-- <li><strong>발송 요일:</strong> 월요일, 목요일</li> -->
           </ul>
           <!-- <p class="farm-alert">
             <strong>참고사항!</strong>수확 초기에는 과일에 신맛이 조금 남아있을
@@ -350,119 +504,438 @@
     <section class="bg-light py-5 pb-0">
       <div class="container">
         <h2 class="text-center mb-4">상품 정보</h2>
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="card mb-4 position-relative">
-              <span class="premium-badge">최상품</span>
-              <img src="./img/상품.jpeg" class="card-img-top" alt="상품 10kg" />
-              <div class="card-body">
-                <h5 class="card-title">상품 10kg</h5>
-                <p class="card-text">엄선된 고품질 천혜향 10kg</p>
-                <p class="card-text fw-bold text-danger">87,000원</p>
-                <div class="d-flex gap-2">
-                  <a
-                    href="product-10kg.html"
-                    class="btn btn-outline-secondary flex-grow-1"
-                  >
-                    상세보기
-                  </a>
-                  <a
-                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
-                    class="btn btn-order flex-grow-1"
-                  >
-                    주문하기
-                  </a>
-                  <button class="btn btn-sold-out flex-grow-1" disabled>
-                    품절
-                  </button>
+
+        <!-- 카테고리 탭 추가 -->
+        <ul class="nav nav-tabs mb-4" id="productTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="all-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#all"
+              type="button"
+              role="tab"
+              aria-controls="all"
+              aria-selected="true"
+            >
+              ALL
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="karahyang-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#karahyang"
+              type="button"
+              role="tab"
+              aria-controls="karahyang"
+              aria-selected="false"
+            >
+              카라향
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="chunhyang-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#chunhyang"
+              type="button"
+              role="tab"
+              aria-controls="chunhyang"
+              aria-selected="false"
+            >
+              천혜향
+            </button>
+          </li>
+          <!-- <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="dalkomi-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#dalkomi"
+              type="button"
+              role="tab"
+              aria-controls="dalkomi"
+              aria-selected="false"
+            >
+              달코미
+            </button>
+          </li> -->
+        </ul>
+
+        <!-- 탭 콘텐츠 -->
+        <div class="tab-content" id="productTabsContent">
+          <!-- 전체 상품 탭 -->
+          <div
+            class="tab-pane fade show active"
+            id="all"
+            role="tabpanel"
+            aria-labelledby="all-tab"
+          >
+            <div class="row">
+              <!-- 카라향 상품 -->
+              <div class="col-md-6 product-item" data-category="karahyang">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/karahyang/상품.jpeg"
+                    class="card-img-top"
+                    alt="카라향 상품 10kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">카라향</span>
+                    <h5 class="card-title">카라향 상품 10kg</h5>
+                    <p class="card-text">엄선된 고품질 카라향(남진해) 10kg</p>
+                    <p class="card-text fw-bold text-danger">57,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./karahyang/product-10kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/KhuKKfuTpVnMXAhaA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                      <!-- <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button> -->
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <div class="col-md-6 product-item" data-category="karahyang">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/karahyang/상품.jpeg"
+                    class="card-img-top"
+                    alt="카라향 상품 5kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">카라향</span>
+                    <h5 class="card-title">카라향 상품 5kg</h5>
+                    <p class="card-text">엄선된 고품질 카라향(남진해) 5kg</p>
+                    <p class="card-text fw-bold text-danger">32,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./karahyang/product-5kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/KhuKKfuTpVnMXAhaA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                      <!-- <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="karahyang">
+                <div class="card mb-4 position-relative">
+                  <!-- <span class="discount-badge">정가 대비 29% 할인</span> -->
+                  <img
+                    src="./img/karahyang/비품.jpeg"
+                    class="card-img-top"
+                    alt="카라향 비품 10kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">카라향</span>
+                    <h5 class="card-title">카라향 비품 10kg</h5>
+                    <p class="card-text">
+                      모양이 조금 불균일하지만 맛은 동일한 카라향(남진해) 10kg
+                    </p>
+                    <p class="card-text fw-bold text-danger">42,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./karahyang/bproduct-10kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/KhuKKfuTpVnMXAhaA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                      <!-- <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="karahyang">
+                <div class="card mb-4 position-relative">
+                  <!-- <span class="discount-badge">정가 대비 24% 할인</span> -->
+                  <img
+                    src="./img/karahyang/비품.jpeg"
+                    class="card-img-top"
+                    alt="카라향 비품 5kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-primary mb-2">카라향</span>
+                    <h5 class="card-title">카라향 비품 5kg</h5>
+                    <p class="card-text">
+                      모양이 조금 불균일하지만 맛은 동일한 카라향(남진해) 5kg
+                    </p>
+                    <p class="card-text fw-bold text-danger">25,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./karahyang/bproduct-5kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/KhuKKfuTpVnMXAhaA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                      <!-- <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 천혜향 상품 -->
+              <div class="col-md-6 product-item" data-category="chunhyang">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/chunhyang/상품.jpeg"
+                    class="card-img-top"
+                    alt="천혜향 상품 10kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-brown mb-2">천혜향</span>
+                    <h5 class="card-title">천혜향 상품 10kg</h5>
+                    <p class="card-text">엄선된 고품질 천혜향 10kg</p>
+                    <p class="card-text fw-bold text-danger">87,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./chunhyang/product-10kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <!-- <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      > -->
+                      <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="chunhyang">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/chunhyang/상품.jpeg"
+                    class="card-img-top"
+                    alt="천혜향 상품 5kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-brown mb-2">천혜향</span>
+                    <h5 class="card-title">천혜향 상품 5kg</h5>
+                    <p class="card-text">엄선된 고품질 천혜향 5kg</p>
+                    <p class="card-text fw-bold text-danger">46,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./chunhyang/product-5kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <!-- <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      > -->
+                      <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="chunhyang">
+                <div class="card mb-4 position-relative">
+                  <span class="discount-badge">정가 대비 29% 할인</span>
+                  <img
+                    src="./img/chunhyang/비품.jpeg"
+                    class="card-img-top"
+                    alt="천혜향 비품 10kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-brown mb-2">천혜향</span>
+                    <h5 class="card-title">천혜향 비품 10kg</h5>
+                    <p class="card-text">
+                      모양이 조금 불균일하지만 맛은 동일한 천혜향 10kg
+                    </p>
+                    <p class="card-text fw-bold text-danger">62,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./chunhyang/bproduct-10kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <!-- <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      > -->
+                      <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="chunhyang">
+                <div class="card mb-4 position-relative">
+                  <span class="discount-badge">정가 대비 24% 할인</span>
+                  <img
+                    src="./img/chunhyang/비품.jpeg"
+                    class="card-img-top"
+                    alt="천혜향 비품 5kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-brown mb-2">천혜향</span>
+                    <h5 class="card-title">천혜향 비품 5kg</h5>
+                    <p class="card-text">
+                      모양이 조금 불균일하지만 맛은 동일한 천혜향 5kg
+                    </p>
+                    <p class="card-text fw-bold text-danger">35,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="./chunhyang/bproduct-5kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <!-- <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      > -->
+                      <button class="btn btn-sold-out flex-grow-1" disabled>
+                        품절
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 달코미 상품 -->
+              <!-- <div class="col-md-6 product-item" data-category="dalkomi">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/상품.jpeg"
+                    class="card-img-top"
+                    alt="달코미 상품 10kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">달코미</span>
+                    <h5 class="card-title">달코미 상품 10kg</h5>
+                    <p class="card-text">엄선된 고품질 달코미 감귤 10kg</p>
+                    <p class="card-text fw-bold text-danger">55,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="dalkomi-10kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 product-item" data-category="dalkomi">
+                <div class="card mb-4 position-relative">
+                  <span class="premium-badge">최상품</span>
+                  <img
+                    src="./img/상품.jpeg"
+                    class="card-img-top"
+                    alt="달코미 상품 5kg"
+                  />
+                  <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">달코미</span>
+                    <h5 class="card-title">달코미 상품 5kg</h5>
+                    <p class="card-text">엄선된 고품질 달코미 감귤 5kg</p>
+                    <p class="card-text fw-bold text-danger">30,000원</p>
+                    <div class="d-flex gap-2">
+                      <a
+                        href="dalkomi-5kg.html"
+                        class="btn btn-outline-secondary flex-grow-1"
+                        >상세보기</a
+                      >
+                      <a
+                        href="https://forms.gle/VLHckk8MLX5qNtXNA"
+                        class="btn btn-order flex-grow-1"
+                        >주문하기</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div> -->
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card mb-4 position-relative">
-              <span class="premium-badge">최상품</span>
-              <img src="./img/상품.jpeg" class="card-img-top" alt="상품 5kg" />
-              <div class="card-body">
-                <h5 class="card-title">상품 5kg</h5>
-                <p class="card-text">엄선된 고품질 천혜향 5kg</p>
-                <p class="card-text fw-bold text-danger">46,000원</p>
-                <div class="d-flex gap-2">
-                  <a
-                    href="product-5kg.html"
-                    class="btn btn-outline-secondary flex-grow-1"
-                  >
-                    상세보기
-                  </a>
-                  <a
-                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
-                    class="btn btn-order flex-grow-1"
-                  >
-                    주문하기
-                  </a>
-                  <button class="btn btn-sold-out flex-grow-1" disabled>
-                    품절
-                  </button>
-                </div>
-              </div>
+
+          <!-- 카라향 탭 -->
+          <div
+            class="tab-pane fade"
+            id="karahyang"
+            role="tabpanel"
+            aria-labelledby="karahyang-tab"
+          >
+            <div class="row" id="karahyang-products">
+              <!-- 카라향 상품은 JavaScript로 자동 필터링됩니다 -->
             </div>
           </div>
-        </div> -->
-        <div class="row mt-4">
-          <div class="col-md-6">
-            <div class="card mb-4 position-relative">
-              <!-- <span class="discount-badge">정가 대비 29% 할인</span> -->
-              <img src="./img/비품.jpeg" class="card-img-top" alt="비품 10kg" />
-              <div class="card-body">
-                <h5 class="card-title">비품 10kg</h5>
-                <p class="card-text">
-                  모양이 조금 불균일하지만 맛은 동일한 카라향(남진해) 10kg
-                </p>
-                <p class="card-text fw-bold text-danger">42,000원</p>
-                <div class="d-flex gap-2">
-                  <a
-                    href="bproduct-10kg.html"
-                    class="btn btn-outline-secondary flex-grow-1"
-                  >
-                    상세보기
-                  </a>
-                  <a
-                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
-                    class="btn btn-order flex-grow-1"
-                  >
-                    주문하기
-                  </a>
-                </div>
-              </div>
+
+          <!-- 천혜향 탭 -->
+          <div
+            class="tab-pane fade"
+            id="chunhyang"
+            role="tabpanel"
+            aria-labelledby="chunhyang-tab"
+          >
+            <div class="row" id="chunhyang-products">
+              <!-- 천혜향 상품은 JavaScript로 자동 필터링됩니다 -->
             </div>
           </div>
-          <!-- <div class="col-md-6">
-            <div class="card mb-4 position-relative">
-              <span class="discount-badge">정가 대비 24% 할인</span>
-              <img src="./img/비품.jpeg" class="card-img-top" alt="비품 5kg" />
-              <div class="card-body">
-                <h5 class="card-title">비품 5kg</h5>
-                <p class="card-text">
-                  모양이 조금 불균일하지만 맛은 동일한 천혜향 5kg
-                </p>
-                <p class="card-text fw-bold text-danger">35,000원</p>
-                <div class="d-flex gap-2">
-                  <a
-                    href="bproduct-5kg.html"
-                    class="btn btn-outline-secondary flex-grow-1"
-                  >
-                    상세보기
-                  </a>
-                  <a
-                    href="https://forms.gle/VLHckk8MLX5qNtXNA"
-                    class="btn btn-order flex-grow-1"
-                  >
-                    주문하기
-                  </a>
-                </div>
-              </div>
+
+          <!-- 달코미 탭 -->
+          <div
+            class="tab-pane fade"
+            id="dalkomi"
+            role="tabpanel"
+            aria-labelledby="dalkomi-tab"
+          >
+            <div class="row" id="dalkomi-products">
+              <!-- 달코미 상품은 JavaScript로 자동 필터링됩니다 -->
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </section>
@@ -546,6 +1019,37 @@
           interval: 3500, // 3.5초마다 슬라이드 변경
           pause: false, // 마우스 호버 시 멈춤 방지
         });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // 탭 변경 이벤트 리스너 추가
+        document.querySelectorAll("#productTabs button").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            const targetCategory = this.id.replace("-tab", "");
+
+            // 탭 전환 시 필터링 로직
+            if (targetCategory !== "all") {
+              // 해당 카테고리 상품을 복제하여 표시
+              const productsContainer = document.querySelector(
+                `#${targetCategory}-products`
+              );
+              productsContainer.innerHTML = ""; // 기존 내용 비우기
+
+              // 원본 상품 목록에서 해당 카테고리 상품 찾기
+              const products = document.querySelectorAll(
+                `.product-item[data-category="${targetCategory}"]`
+              );
+
+              // 해당 카테고리 상품 복제하여 탭 내용에 추가
+              products.forEach((product) => {
+                const clone = product.cloneNode(true);
+                productsContainer.appendChild(clone);
+              });
+            }
+          });
+        });
+
+        // 초기 로딩 시 전체 탭 표시 (이미 active로 설정되어 있음)
       });
     </script>
   </body>

@@ -20,7 +20,6 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./main-logo.png" type="image/x-icon" />
-
     <style>
       /* 구기체 폰트 적용 */
       .gugi-font {
@@ -43,12 +42,12 @@
       }
       .price-tag {
         font-size: 1.8rem;
-        color: #dc3545;
+        color: #198754;
         font-weight: bold;
         margin-bottom: 1rem;
       }
-      .discount-badge {
-        background-color: #dc3545;
+      .premium-badge {
+        background-color: #198754;
         color: white;
         padding: 5px 10px;
         border-radius: 4px;
@@ -70,6 +69,18 @@
       .btn-order:hover {
         background-color: #e86e06;
         border-color: #e86e06;
+        color: white;
+      }
+      /* 품절 버튼 스타일 */
+      .btn-sold-out {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+        cursor: not-allowed;
+      }
+      .btn-sold-out:hover {
+        background-color: #5a6268;
+        border-color: #5a6268;
         color: white;
       }
       .action-buttons {
@@ -149,6 +160,7 @@
         margin-right: 0;
         color: white;
       }
+
       /* 인스타그램 아이콘 스타일 */
       .insta-icon {
         width: 50px;
@@ -254,7 +266,7 @@
     <!-- 네비게이션 바 -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand gugi-font" href="index.html">
+        <a class="navbar-brand gugi-font" href="../index.html">
           🍊 제주 향이네 농장
         </a>
       </div>
@@ -274,25 +286,25 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="./img/비품.jpeg"
+                  src="../img/farm-info.png"
                   class="d-block w-100 product-image"
-                  alt="천혜향 비품 5kg 이미지 1"
+                  alt="농장 정보"
                 />
               </div>
-              <div class="carousel-item">
+              <!-- <div class="carousel-item">
                 <img
                   src="./img/info.png"
                   class="d-block w-100 product-image"
-                  alt="천혜향 비품 5kg 이미지 2"
+                  alt="천혜향 상품 10kg 이미지 2"
                 />
               </div>
               <div class="carousel-item">
                 <img
                   src="./img/farm-info.png"
                   class="d-block w-100 product-image"
-                  alt="천혜향 비품 5kg 이미지 3"
+                  alt="천혜향 상품 10kg 이미지 3"
                 />
-              </div>
+              </div> -->
             </div>
             <!-- 이전/다음 버튼 -->
             <button
@@ -322,10 +334,10 @@
           </div>
 
           <!-- 썸네일 이미지들 -->
-          <div class="row mt-3 thumbnail-container">
+          <!-- <div class="row mt-3 thumbnail-container">
             <div class="col-3">
               <img
-                src="./img/비품.jpeg"
+                src="./img/상품.jpeg"
                 class="img-thumbnail thumbnail-img active"
                 alt="썸네일 1"
                 data-bs-target="#productCarousel"
@@ -350,10 +362,10 @@
                 data-bs-slide-to="2"
               />
             </div>
-          </div>
+          </div> -->
 
           <div class="text-center mt-3">
-            <span class="badge bg-danger">가성비 최고</span>
+            <span class="badge bg-success">품질 보장</span>
             <span class="badge bg-warning text-dark">제주 직배송</span>
             <span class="badge bg-info">신선 보장</span>
           </div>
@@ -361,23 +373,26 @@
 
         <!-- 상품 정보 -->
         <div class="col-md-6">
-          <h1 class="mb-2">천혜향 비품 5kg</h1>
+          <h1 class="mb-2">카라향(남진해) 상품 10kg</h1>
           <p class="price-tag">
-            35,000원 <span class="discount-badge">정품 대비 24% 할인</span>
+            57,000원 <span class="premium-badge">최상품</span>
           </p>
           <p class="lead mb-4">
-            겉모습은 조금 다르지만 맛과 품질은 동일한 가성비 좋은 실속형
-            상품입니다.
+            대가족이나 사무실에서 넉넉하게 즐기는 제주 직송 프리미엄
+            카라향(남진해)입니다.
           </p>
 
           <!-- 주문하기/돌아가기 버튼 -->
           <div class="action-buttons">
             <a
-              href="https://forms.gle/VLHckk8MLX5qNtXNA"
+              href="https://forms.gle/KhuKKfuTpVnMXAhaA"
               class="btn btn-order btn-lg"
               >주문하기</a
             >
-            <a href="index.html" class="btn btn-outline-secondary btn-lg ms-2"
+            <!-- <button class="btn btn-sold-out btn-lg" disabled>품절</button> -->
+            <a
+              href="../index.html"
+              class="btn btn-outline-secondary btn-lg ms-2"
               >돌아가기</a
             >
           </div>
@@ -385,43 +400,41 @@
           <div class="alert alert-danger mb-4" role="alert">
             <h5>🚚 배송 안내</h5>
             <p class="mb-0">
-              3월 10일부터 발송가능합니다.<br />
-              월요일, 목요일만 발송예정입니다.
+              5월 7일부터 발송가능합니다.<br />
+              <!-- 월요일, 목요일만 발송예정입니다. -->
             </p>
           </div>
 
-          <div class="alert alert-success mb-4" role="alert">
-            <h5>💰 비품 특가 안내</h5>
+          <div class="quality-card mb-4">
+            <h5>🍊 프리미엄 품질</h5>
             <p class="mb-0">
-              비품은 모양이나 크기가 일정하지 않아 상품으로 판매하기 어려운
-              과일입니다. 하지만 맛과 품질은 정품과 동일하여 가성비가 매우
-              좋습니다!
+              향이네 농장의 상품 등급 카라향(남진해)은 최상급 품질로, 크기와
+              모양이 균일하고 당도가 높은 카라향(남진해)만을 엄선하여
+              보내드립니다. 10kg 대용량으로 더 저렴하게 즐기세요.
             </p>
           </div>
 
           <!-- 상품 설명을 먼저 배치 -->
           <div class="mb-4">
-            <h4>비품 5kg 설명</h4>
+            <h4>상품 10kg 설명</h4>
             <p>
-              비품 천혜향은 맛과 당도는 일반 상품과 동일하지만, 외관이 조금
-              불완전한 과일입니다. 크기가 일정하지 않거나, 표면에 흠집이 있거나,
-              모양이 예쁘지 않은 경우가 있습니다. 하지만 맛과 영양은 그대로이기
-              때문에 가정에서 드시기에 더욱 경제적입니다.
+              제주 서귀포 향이네 감귤 농장에서 정성껏 재배한 프리미엄
+              카라향(남진해)입니다. 당도가 높고 과즙이 풍부한 카라향만을
+              엄선하여, 최적의 수확 시기에 수확해 신선함을 더했습니다.
             </p>
             <p>
-              5kg 세트는 2-3인 가족이 1-2주간 즐길 수 있는 양으로, 정품 대비 24%
-              할인된 가격으로 제공됩니다. 맛은 동일하지만 가격 부담은 훨씬 적어
-              실속을 중시하는 현명한 소비자들에게 인기가 높습니다.
+              10kg 대용량 세트는 대가족이나 사무실에서 함께 나눠 먹기에 넉넉한
+              구성으로, 카라향 특유의 달콤한 맛과 향긋한 향을 오래도록 즐기실 수
+              있습니다. 대용량 구매 시 kg당 단가가 낮아 더욱 경제적으로 만나보실
+              수 있습니다.
             </p>
 
             <!-- 스펙 정보는 설명 아래에 배치 -->
             <div class="specs">
               <ul class="list-unstyled">
-                <li><strong>중량:</strong> 5kg (개수는 크기에 따라 다양함)</li>
-                <li><strong>당도:</strong> 평균 12-13 Brix (정품과 동일)</li>
-                <li>
-                  <strong>특징:</strong> 모양이나 크기가 불균일하지만 맛은 동일
-                </li>
+                <li><strong>중량:</strong> 10kg (혼합 60개-70개)</li>
+                <li><strong>당도:</strong> 평균 14 Brix 이상</li>
+                <li><strong>등급:</strong> 상품 (외관 우수)</li>
                 <li><strong>수확:</strong> 농장 직송 당일 수확</li>
                 <li><strong>배송:</strong> 택배배송 (제주 직송)</li>
               </ul>
@@ -453,12 +466,12 @@
                 class="insta-icon-link"
               >
                 <img
-                  src="./img/logo/insta-logo.png"
+                  src="../img/logo/insta-logo.png"
                   class="insta-icon insta-normal"
                   alt="인스타그램"
                 />
                 <img
-                  src="./img/logo/insta-logo-click.png"
+                  src="../img/logo/insta-logo-click.png"
                   class="insta-icon insta-hover"
                   alt="인스타그램"
                 />
@@ -467,12 +480,12 @@
               <!-- 카카오톡 아이콘 -->
               <a href="http://pf.kakao.com/_INznn" class="kakao-icon-link">
                 <img
-                  src="./img/logo/kakao-logo.png"
+                  src="../img/logo/kakao-logo.png"
                   class="kakao-icon kakao-normal"
                   alt="카카오톡"
                 />
                 <img
-                  src="./img/logo/kakao-logo-click.png"
+                  src="../img/logo/kakao-logo-click.png"
                   class="kakao-icon kakao-hover"
                   alt="카카오톡"
                 />
